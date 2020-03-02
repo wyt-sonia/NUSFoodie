@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/colorTextIcon"
+    tools:context=".ProfileActivity">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/profileIv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/banner_1" />
+
+    <RelativeLayout
+        android:id="@+id/layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#41000000">
+
+    </RelativeLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="273dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="#37000000"
+            android:background="@android:color/transparent"
+            app:titleEnabled="false">
+
+            <FrameLayout
+                android:id="@+id/Fl"
+                app:layout_collapseMode="parallax"
+                android:layout_width="match_parent"
+                android:layout_height="273dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/toolbar_userInfo"
+                    android:layout_width="match_parent"
+                    android:background="@android:color/transparent"
+                    android:layout_height="273dp">
+
+                    <com.rey.material.widget.ImageView
+                        android:id="@+id/profileIconIv"
+                        android:layout_width="80dp"
+                        android:adjustViewBounds="true"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <com.rey.material.widget.TextView
+                        android:id="@+id/greetingTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTextIcon"
+                        android:textSize="16sp"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@id/profileIconIv"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <com.rey.material.widget.TextView
+                        android:id="@+id/userIDTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/colorTextIcon"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/greetingTv" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title=""
+                app:titleTextColor="@color/colorTextIcon"
+                app:navigationIcon="@drawable/back_w" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:fillViewport="true"
+        android:paddingTop="0dp"
+        android:layout_marginTop="0dp"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_corner_trans"
+            android:paddingBottom="24dp"
+            android:paddingHorizontal="24dp">
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/usernameEt"
+                    style="@style/LightEditText"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Username"
+                    android:singleLine="true"
+                    app:et_helper="Enter username"
+                    app:et_supportMode="helperWithError"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/emailEt"
+                    style="@style/LightEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Email"
+                    android:singleLine="true"
+                    app:et_helper="Enter email address"
+                    app:et_supportMode="helperWithError"
+                    app:layout_constraintTop_toBottomOf="@id/usernameEt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/telEt"
+                    style="@style/LightEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Tel"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:et_helper="Enter tel number"
+                    app:et_supportMode="helperWithError"
+                    app:layout_constraintTop_toBottomOf="@id/emailEt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/personalIDEt"
+                    style="@style/LightEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:singleLine="true"
+                    android:hint="Personal ID"
+                    app:et_supportMode="helperWithError"
+                    app:et_helper="Enter personal ID"
+                    app:layout_constraintTop_toBottomOf="@id/telEt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+                <com.rey.material.widget.EditText
+                    android:id="@+id/ageEt"
+                    style="@style/LightEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Age"
+                    android:inputType="number"
+                    app:et_helper="Enter age"
+                    app:et_supportMode="helperWithError"
+                    app:layout_constraintTop_toBottomOf="@id/personalIDEt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.rey.material.widget.LinearLayout
+                    android:id="@+id/genderGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="5dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@id/ageEt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.rey.material.widget.TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="Gender : "
+                        android:textSize="18sp" />
+
+                    <com.rey.material.widget.RadioButton
+                        android:id="@+id/genderRbF"
+                        style="@style/RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:checked="false"
+                        android:gravity="center_vertical"
+                        android:text="Female" />
+
+                    <com.rey.material.widget.RadioButton
+                        android:id="@+id/genderRbM"
+                        style="@style/LightRadioButtonDrawable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:gravity="center_vertical"
+                        android:text="Male" />
+
+                </com.rey.material.widget.LinearLayout>
+
+            <com.rey.material.widget.Button
+                android:id="@+id/updateBtn"
+                style="@style/LightRaiseColorButtonRippleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:text="Update Profile"
+                app:rd_enable="true"
+                app:layout_constraintTop_toBottomOf="@id/genderGroup"/>
+
+            <com.rey.material.widget.Button
+                android:id="@+id/signOutBtn"
+                style="@style/LightRaiseColorButtonRippleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:text="Sign Out"
+                app:rd_enable="true"
+                app:layout_constraintTop_toBottomOf="@+id/updateBtn"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+
+            <ImageView
+                android:id="@+id/load_gif"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/load_gif"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/navBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/bottom_sheet_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF"
+                android:elevation="3dp"
+                app:el_duration="600"
+                app:el_expanded="false"
+                app:el_parallax="0.5"
+                app:layout_constraintBottom_toTopOf="@+id/navBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/userActionBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingTop="8dp">
+
+                    <TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="= My Wallet ="
+                        android:textColor="@color/colorPrimaryMid"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/balanceTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="My wallet balance: S$ 0.00"
+                        android:textSize="16sp"
+                        android:gravity="start|center"
+                        app:layout_constraintTop_toBottomOf="@+id/titleTv"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/amountTL"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        app:errorEnabled="true"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/balanceTv"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="5"
+                        android:hint="Amount">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/amountEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:gravity="left|bottom"
+                            android:inputType="numberDecimal"
+                            android:paddingTop="8dp"
+                            android:singleLine="true"
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.rey.material.widget.Button
+                            android:id="@+id/withdrawBtn"
+                            style="@style/LightRaiseColorButtonRippleStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="5"
+                            android:text="Withdraw"
+                            app:rd_enable="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/topUpBtn"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/amountTL"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="20dp"/>
+
+                        <com.rey.material.widget.Button
+                            android:id="@+id/topUpBtn"
+                            style="@style/LightRaiseColorButtonRippleStyle"
+                            android:layout_width="0dp"
+                            android:layout_marginLeft="16dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="5"
+                            android:text="Top Up"
+                            app:rd_enable="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/withdrawBtn"
+                            app:layout_constraintTop_toBottomOf="@id/amountTL"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="20dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+            <RelativeLayout
+                android:id="@+id/uiHelper"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="48dp"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"></RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/walletPuller"
+                android:layout_width="wrap_content"
+                android:paddingHorizontal="24dp"
+                android:layout_height="40dp"
+                android:background="@drawable/round_corner"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginRight="8dp"
+                android:elevation="3dp"
+                app:layout_constraintTop_toBottomOf="@id/uiHelper">
+                <ImageView
+                    android:id="@+id/coin_gif"
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/coin_2"/>
+            </RelativeLayout>
+
+            <com.rey.material.widget.LinearLayout
+                android:id="@+id/navBar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="12"
+                android:elevation="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navProfileBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/profile_icon_2" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navCanteenListBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/canteen_icon_2" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navCartBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/cart" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navOrderBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/order_icon" />
+            </com.rey.material.widget.LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

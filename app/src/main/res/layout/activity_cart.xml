@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CartActivity">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ver_dis_7" />
+
+    <com.rey.material.widget.RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#37000000"></com.rey.material.widget.RelativeLayout>
+
+    <com.rey.material.widget.ImageButton
+        android:id="@+id/navBackBtn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/back_w"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/titleTv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTv"
+        app:rd_enable="true"
+        app:rippleColor="#FFF" />
+
+    <com.rey.material.widget.TextView
+        android:id="@+id/titleTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="My Cart"
+        android:textAllCaps="true"
+        android:textColor="#DFFFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/navBackBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/dividerV"
+        android:layout_width="377dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTv" />
+
+    <com.rey.material.widget.ListView
+        android:id="@+id/cartItemLv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkOutPuller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTv"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintVertical_bias="0.0">
+
+    </com.rey.material.widget.ListView>
+
+    <com.rey.material.widget.TextView
+        android:id="@+id/emptyCartTv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Empty Cart"
+        android:textColor="#DFFFFFFF"
+        android:textSize="36sp"
+        android:visibility="gone"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/checkOutPuller"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/bottom_sheet_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFF"
+        app:el_duration="600"
+        app:el_expanded="true"
+        app:el_parallax="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/navBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/userActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/timePickerTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Set Pick Up Time:"
+                android:textColor="@color/colorPrimaryMid"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.rey.material.widget.LinearLayout
+                android:id="@+id/timePickerLv"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/timePickerTv">
+
+                <ImageButton
+                    android:id="@+id/dateTimePickerBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="2"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/pick_up_time_icon"
+                    android:tint="@color/colorPrimary" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/dateTimeTv"
+                    style="@style/Widget.AppCompat.TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="left|center"
+                    android:hint="Press to set collection Time" />
+
+            </com.rey.material.widget.LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:hint="Remarks"
+                app:counterEnabled="true"
+                app:counterMaxLength="100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timePickerLv">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/remarksEv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|top"
+                    android:paddingTop="8dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/coin_gif"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+                android:src="@drawable/coin_2"/>
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/balanceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="Wallet balance: S$ 0.00"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintStart_toEndOf="@+id/coin_gif"
+                app:layout_constraintTop_toTopOf="@id/coin_gif"
+                app:layout_constraintBottom_toBottomOf="@id/coin_gif"/>
+
+            <com.rey.material.widget.Button
+                android:id="@+id/checkOutBtn"
+                style="@style/LightRaiseColorButtonRippleStyle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="20dp"
+                android:text="Check out"
+                app:layout_constraintTop_toBottomOf="@+id/coin_gif"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rd_enable="true" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+    <RelativeLayout
+        android:id="@+id/uiHelper"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="19.5dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_sheet_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkOutPuller"
+        android:layout_width="100dp"
+        android:elevation="3dp"
+        android:layout_height="40dp"
+        android:background="@drawable/round_corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/uiHelper">
+        <ImageView
+            android:id="@+id/pullerIcon"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/down"
+            android:background="@android:color/transparent"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/load_gif"
+        android:layout_width="100dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/load_gif"
+        app:layout_constraintBottom_toTopOf="@+id/navBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.rey.material.widget.LinearLayout
+        android:id="@+id/navBar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:weightSum="12"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <com.rey.material.widget.ImageButton
+            android:id="@+id/navProfileBtn"
+            android:src="@drawable/profile_icon_2"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_margin="0dp"
+            app:rd_enable="true"
+            android:background="@color/colorTextIcon"
+            android:layout_height="match_parent" />
+        <com.rey.material.widget.ImageButton
+            android:id="@+id/navCanteenListBtn"
+            android:layout_weight="3"
+            android:src="@drawable/canteen_icon_2"
+            android:layout_width="0dp"
+            app:rd_enable="true"
+            android:layout_margin="0dp"
+            android:background="@color/colorTextIcon"
+            android:layout_height="match_parent" />
+        <com.rey.material.widget.ImageButton
+            android:id="@+id/navCartBtn"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:src="@drawable/cart"
+            android:layout_margin="0dp"
+            app:rd_enable="true"
+            android:background="@color/colorTextIcon"
+            android:layout_height="match_parent" />
+        <com.rey.material.widget.ImageButton
+            android:id="@+id/navOrderBtn"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:src="@drawable/order_icon"
+            android:layout_margin="0dp"
+            app:rd_enable="true"
+            android:background="@color/colorTextIcon"
+            android:layout_height="match_parent" />
+    </com.rey.material.widget.LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/colorTextIcon"
+    tools:context=".OrderRecordActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="#37000000"
+            app:titleEnabled="false">
+
+            <FrameLayout
+                android:id="@+id/Fl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/orderIv"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_weight="0"
+                    android:src="@drawable/display_photo_5"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/titleTv" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#25050505">
+
+                </RelativeLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="273dp">
+
+                    <com.rey.material.widget.TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:text="Current Orders"
+                        android:textColor="@color/colorTextIcon"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/colorTextIcon" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTextIcon"
+        android:fillViewport="true"
+        android:paddingTop="32dp"
+        android:paddingBottom="50dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/LL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/pull_to_refresh"
+                android:layout_width="match_parent"
+                android:minHeight="300dp"
+                android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.rey.material.widget.ListView
+                    android:id="@+id/currOrderLv"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.rey.material.widget.ListView>
+
+
+                <com.rey.material.widget.ListView
+                    android:id="@+id/orderHistLv"
+                    android:nestedScrollingEnabled="true"
+                    android:layout_width="match_parent"
+                    android:visibility="invisible"
+                    android:layout_height="match_parent">
+
+                </com.rey.material.widget.ListView>
+            </FrameLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <iammert.com.view.scalinglib.ScalingLayout
+        android:id="@+id/scalingLayout"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        app:radiusFactor="0.1"
+        android:elevation="3dp"
+        android:backgroundTint="@color/colorTextIcon"
+        android:layout_gravity="center_horizontal"
+        android:stateListAnimator="@animator/sl_state_animator"
+        app:layout_behavior="iammert.com.view.scalinglib.ScalingLayoutBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
+            android:paddingHorizontal="8dp"
+            android:orientation="horizontal"
+            android:background="@color/colorTextIcon">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/currBtn"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:backgroundTint="@color/colorTextIcon"
+                android:text="Current"
+                app:rippleColor="@color/colorPrimaryMid"
+                android:textColor="#BFFF5722"
+                app:cornerRadius="0dp"
+                app:icon="@drawable/order_icon"
+                app:iconTint="@color/colorPrimary"
+                android:elevation="0dp"
+                app:iconGravity="start"
+                app:strokeColor="@color/colorTextIcon" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/histBtn"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:backgroundTint="@color/colorTextIcon"
+                android:text="History"
+                app:rippleColor="@color/colorPrimaryMid"
+                android:textColor="#BFFF5722"
+                app:cornerRadius="0dp"
+                app:icon="@drawable/history"
+                app:iconTint="@color/colorPrimary"
+                android:elevation="0dp"
+                app:iconGravity="start"
+                app:strokeColor="@color/colorTextIcon" />
+
+        </LinearLayout>
+
+    </iammert.com.view.scalinglib.ScalingLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/load_gif"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/load_gif"
+            app:layout_constraintBottom_toTopOf="@+id/navBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.rey.material.widget.LinearLayout
+            android:id="@+id/navBar"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:elevation="3dp"
+            android:weightSum="12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navProfileBtn"
+                android:src="@drawable/profile_icon_2"
+                android:focusedByDefault="false"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:background="@color/colorTextIcon"
+                android:layout_height="match_parent" />
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navCanteenListBtn"
+                android:layout_weight="3"
+                android:src="@drawable/canteen_icon_2"
+                android:layout_width="0dp"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:background="@color/colorTextIcon"
+                android:layout_height="match_parent" />
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navCartBtn"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:src="@drawable/cart"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:background="@color/colorTextIcon"
+                android:layout_height="match_parent" />
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navOrderBtn"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:src="@drawable/order_icon"
+                app:rd_enable="true"
+                android:layout_margin="0dp"
+                android:background="@color/colorTextIcon"
+                android:layout_height="match_parent" />
+        </com.rey.material.widget.LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

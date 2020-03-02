@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/colorTextIcon"
+    tools:context=".StallListActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="#37000000"
+            app:titleEnabled="false">
+
+            <FrameLayout
+                android:id="@+id/Fl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/canteenIv"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp"
+                    android:layout_weight="0"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/titleTv" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#32050505">
+
+                </RelativeLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="273dp">
+
+                    <com.rey.material.widget.TextView
+                        android:id="@+id/titleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorTextIcon"
+                        android:textSize="24sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.rey.material.widget.TextView
+                        android:id="@+id/operationHrsTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
+                        android:text="Open : 8:00 Close : 20:00"
+                        android:textColor="@color/colorTextIcon"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/back_w"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/colorTextIcon" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTextIcon"
+        android:fillViewport="true"
+        android:paddingTop="32dp"
+        android:paddingBottom="50dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/LL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/pull_to_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <com.rey.material.widget.ListView
+                android:id="@+id/stallLv"
+                android:nestedScrollingEnabled="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </com.rey.material.widget.ListView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/load_gif"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/load_gif"
+            app:layout_constraintBottom_toTopOf="@id/navBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.rey.material.widget.LinearLayout
+            android:id="@+id/navBar"
+            android:elevation="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:weightSum="12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navProfileBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:layout_weight="3"
+                android:background="@color/colorTextIcon"
+                android:src="@drawable/profile_icon_2" />
+
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navCanteenListBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:layout_weight="3"
+                android:background="@color/colorTextIcon"
+                android:src="@drawable/canteen_icon_2" />
+
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navCartBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:layout_weight="3"
+                android:background="@color/colorTextIcon"
+                android:src="@drawable/cart" />
+
+            <com.rey.material.widget.ImageButton
+                android:id="@+id/navOrderBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="0dp"
+                app:rd_enable="true"
+                android:layout_weight="3"
+                android:background="@color/colorTextIcon"
+                android:src="@drawable/order_icon" />
+        </com.rey.material.widget.LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <iammert.com.view.scalinglib.ScalingLayout
+        android:id="@+id/scalingLayout"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        app:radiusFactor="2"
+        android:elevation="3dp"
+        android:backgroundTint="@color/colorTextIcon"
+        android:layout_gravity="center_horizontal"
+        android:stateListAnimator="@animator/sl_state_animator"
+        app:layout_behavior="iammert.com.view.scalinglib.ScalingLayoutBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorTextIcon">
+
+            <RelativeLayout
+                android:id="@+id/searchLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/searchBtn"
+                android:layout_marginLeft="16dp"
+                android:layout_centerVertical="true"
+                android:visibility="invisible">
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/colorTextIcon"
+                    android:src="@drawable/close_y" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/searchAct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/backBtn"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:textColor="@color/colorPrimaryText"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/searchBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rd_enable="false"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/search_icon_2"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/colorTextIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </iammert.com.view.scalinglib.ScalingLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

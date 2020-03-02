@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/stallRowCL"
+        android:elevation="5dp"
+        app:rippleColor="@color/colorTextIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/stallIv"
+                android:layout_width="377dp"
+                android:layout_height="251dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:scaleType="centerCrop"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/introLL"
+                android:layout_width="377dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                app:layout_constraintLeft_toLeftOf="@id/stallIv"
+                app:layout_constraintRight_toRightOf="@id/stallIv"
+                app:layout_constraintTop_toBottomOf="@+id/stallIv">
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/nameTv"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="4"
+                    android:gravity="left"
+                    android:text="StallName"
+                    android:textAppearance="@style/LightTabTextAppearance"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/numInQueueTv"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="6"
+                    android:text="Num in queue:"
+                    android:textColor="@color/gray_holo_dark" />
+            </LinearLayout>
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/desTv"
+                android:layout_width="377dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="Here is the description of this stall."
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/introLL"
+                app:layout_constraintLeft_toLeftOf="@id/stallIv"
+                app:layout_constraintStart_toStartOf="@+id/introLL"
+                app:layout_constraintTop_toBottomOf="@id/introLL"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/prepareTimeTv"
+                style="@style/myChipTextStyle"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="228dp"
+                android:layout_marginEnd="16dp"
+                android:elevation="3dp"
+                android:text="30min"
+                android:textAppearance="@style/DarkTabTextAppearance"
+                app:chipBackgroundColor="@color/colorTextIcon"
+                app:chipStartPadding="5dp"
+                app:layout_constraintEnd_toEndOf="@+id/stallIv"
+                app:layout_constraintTop_toTopOf="@+id/stallIv"
+                app:rippleColor="@color/colorAccentHalf" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

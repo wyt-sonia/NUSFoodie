@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ver_dis_2" />
+
+    <com.rey.material.widget.RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#42000000"></com.rey.material.widget.RelativeLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Login"
+        android:textColor="#DFFFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2" />
+
+    <com.rey.material.widget.ImageButton
+        android:id="@+id/navBackBtn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/back_w"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rd_enable="true"
+        app:rippleColor="@color/colorTextIcon" />
+
+    <com.rey.material.widget.EditText
+        android:id="@+id/emailEt"
+        style="@style/LightEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#FFFFFF"
+        android:textColor="#FFF"
+        android:outlineAmbientShadowColor="#FFF"
+        android:outlineSpotShadowColor="#FFF"
+        android:textColorHint="#FFF"
+        app:et_dividerColor="#FFF"
+        app:et_labelTextColor="#FFF"
+        app:et_supportTextErrorColor="#FFF"
+        app:et_supportTextColor="#FFF"
+        app:et_helper="Enter email"
+        android:visibility="visible"
+        android:singleLine="true"
+        android:hint="Email"
+        app:et_supportMode="helperWithError"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout2" />
+
+
+    <com.rey.material.widget.EditText
+        android:id="@+id/passwordEt"
+        style="@style/LightEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="#FFF"
+        android:textColor="#FFF"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:outlineAmbientShadowColor="#FFF"
+        android:outlineSpotShadowColor="#FFF"
+        android:singleLine="true"
+        android:textColorHint="#FFF"
+        app:et_supportTextErrorColor="#FFF"
+        android:visibility="visible"
+        app:et_dividerColor="#FFF"
+        app:et_helper="Enter password"
+        app:et_labelTextColor="#FFF"
+        app:et_supportMode="helperWithError"
+        app:et_supportTextColor="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailEt" />
+
+    <com.rey.material.widget.Button
+        android:id="@+id/loginBtn"
+        style="@style/LightRaiseColorButtonRippleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="30dp"
+        android:text="Login"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEt"
+        app:rd_enable="true" />
+
+    <com.rey.material.widget.TextView
+        android:id="@+id/helperBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:text="Forget password?"
+        android:textAllCaps="false"
+        android:textColor="@color/colorTextIcon"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
+    <ImageView
+        android:id="@+id/load_gif"
+        android:layout_width="100dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTv"
+        app:layout_constraintVertical_bias="0.162"
+        app:srcCompat="@drawable/load_gif" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

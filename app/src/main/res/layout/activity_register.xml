@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ver_dis_5" />
+
+    <com.rey.material.widget.RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#37000000"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></com.rey.material.widget.RelativeLayout>
+
+    <com.rey.material.widget.ImageButton
+        android:id="@+id/navBackBtn"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="8dp"
+        android:backgroundTint="@android:color/transparent"
+        android:src="@drawable/back_w"
+        app:layout_constraintBottom_toBottomOf="@id/titleTv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleTv"
+        app:rd_enable="true"
+        app:rippleColor="#FFF" />
+
+    <com.rey.material.widget.TextView
+        android:id="@+id/titleTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/aclonica"
+        android:gravity="center"
+        android:text="Register"
+        android:textAllCaps="true"
+        android:textColor="#DFFFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/navBackBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/dividerV"
+        android:layout_width="377dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTv" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividerV">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="16dp"
+            tools:context=".RegisterActivity">
+
+            <com.rey.material.widget.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <com.rey.material.widget.TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="Register as a : "
+                    android:textColor="#FFF"
+                    android:textSize="18sp" />
+
+                <com.rey.material.widget.Spinner
+                    android:id="@+id/typeSpn"
+                    style="@style/LightSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:minHeight="50dp"
+                    android:background="@android:color/transparent"
+                    android:popupBackground="#77000000"
+                    android:outlineAmbientShadowColor="#FFF"
+                    android:outlineSpotShadowColor="#FFF"
+                    android:textColor="#FFF"
+                    app:rd_enable="true"
+                    app:spn_arrowColor="#FFF"
+                    app:spn_dividerColor="#FFF"
+                    app:spn_labelTextColor="#FFF" />
+            </com.rey.material.widget.LinearLayout>
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/usernameEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Username"
+                app:et_supportTextErrorColor="#FFF"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:et_helper="Enter username"
+                app:et_supportMode="helperWithError" />
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/emailEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:et_supportTextErrorColor="#FFF"
+                android:layout_marginTop="8dp"
+                android:hint="Email"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:et_helper="Enter email address"
+                app:et_supportMode="helperWithError" />
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/telEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:et_supportTextErrorColor="#FFF"
+                android:layout_marginTop="8dp"
+                android:hint="Tel"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:inputType="number"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:et_helper="Enter tel number"
+                app:et_supportMode="helperWithError" />
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/passwordEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:et_supportTextErrorColor="#FFF"
+                android:layout_marginTop="8dp"
+                android:hint="Password"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:et_helper="Enter password"
+                app:et_supportMode="helperWithError" />
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/cPasswordEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:et_supportTextErrorColor="#FFF"
+                android:layout_marginTop="8dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:et_helper="Enter confirm password"
+                app:et_supportMode="helperWithError" />
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/personalIDEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:et_supportTextErrorColor="#FFF"
+                android:layout_marginTop="8dp"
+                android:singleLine="true"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:visibility="gone"
+                app:et_supportMode="helperWithError" />
+
+
+            <com.rey.material.widget.EditText
+                android:id="@+id/ageEt"
+                style="@style/LightEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:et_supportTextErrorColor="#FFF"
+                android:layout_marginTop="8dp"
+                android:hint="Age"
+                android:backgroundTint="#FFFFFF"
+                android:textColor="#FFF"
+                android:outlineAmbientShadowColor="#FFF"
+                android:outlineSpotShadowColor="#FFF"
+                android:textColorHint="#FFF"
+                app:et_dividerColor="#FFF"
+                app:et_labelTextColor="#FFF"
+                app:et_supportTextColor="#FFF"
+                android:inputType="number"
+                android:visibility="gone"
+                app:et_helper="Enter age"
+                app:et_supportMode="helperWithError" />
+
+            <com.rey.material.widget.LinearLayout
+                android:id="@+id/genderGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone">
+
+                <com.rey.material.widget.TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="Gender : "
+                    android:textColor="#FFF"
+                    android:textSize="18sp" />
+
+                <com.rey.material.widget.RadioButton
+                    android:id="@+id/genderRbF"
+                    style="@style/RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:checked="false"
+                    android:textColor="#FFF"
+                    android:gravity="center_vertical"
+                    android:text="Female" />
+
+                <com.rey.material.widget.RadioButton
+                    android:id="@+id/genderRbM"
+                    style="@style/LightRadioButtonDrawable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:textColor="#FFF"
+                    android:buttonTint="#FFF"
+                    android:gravity="center_vertical"
+                    android:text="Male" />
+
+            </com.rey.material.widget.LinearLayout>
+
+            <com.rey.material.widget.Button
+                android:id="@+id/registerBtn"
+                style="@style/LightRaiseColorButtonRippleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Register"
+                android:visibility="gone"
+                app:rd_enable="true" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/load_gif"
+        android:layout_width="100dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="50dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/load_gif"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

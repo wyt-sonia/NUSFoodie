@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/orderRecordRow"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5dp"
+    android:elevation="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.rey.material.widget.ImageView
+            android:id="@+id/gifIv"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="8dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/robottt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/acceptBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/gifIv"
+            app:layout_constraintStart_toEndOf="@+id/gifIv"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/introLLTop"
+                android:layout_width="260dp"
+                android:layout_height="26dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="5dp"
+                android:weightSum="10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/statusTv"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="4"
+                    android:gravity="left"
+                    android:text="Order Status"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/LightTabTextAppearance"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/orderedTimeTv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:gravity="right|center"
+                    android:text="Order Date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginVertical="4dp"
+                android:paddingHorizontal="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.rey.material.widget.TextView
+                    android:id="@+id/canteenTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_holo_dark"
+                    android:layout_weight="6"
+                    android:gravity="left|center"
+                    android:text="CanteenName" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/stallTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/gray_holo_dark"
+                    android:layout_weight="6"
+                    android:gravity="left|center"
+                    android:text="StallName" />
+
+            </LinearLayout>
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/itemInfoTv"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:text="Here is the item information of this order."
+                app:layout_constraintLeft_toLeftOf="@id/introLL"
+                app:layout_constraintTop_toBottomOf="@id/dividerV" />
+
+            <LinearLayout
+                android:id="@+id/introLL"
+                android:layout_width="260dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="5dp"
+                android:weightSum="10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/desTv">
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/collectionTimeTv"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="6"
+                    android:gravity="left|center"
+                    android:text="CollectionDate"
+                    android:textColor="@color/colorPrimary" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/priceTv"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:layout_weight="4"
+                    android:gravity="right|center"
+                    android:paddingLeft="8dp"
+                    android:text="S$ 4.50"
+                    android:textAllCaps="true" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.rey.material.widget.Button
+            android:id="@+id/rejectBtn"
+            style="@style/LightRaiseColorButtonRippleStyle"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:text="REJECT"
+            android:textSize="12sp"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/acceptBtn"
+            app:rd_enable="true" />
+
+        <com.rey.material.widget.Button
+            android:id="@+id/acceptBtn"
+            style="@style/LightRaiseColorButtonRippleStyle"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="20dp"
+            android:text="ACCEPT"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="16dp"
+            app:rd_enable="true" />
+
+        <View
+            android:id="@+id/dividerV"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/colorTextIcon"
+    tools:context=".DishDetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:background="@android:color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:statusBarScrim="#77000000"
+            app:titleEnabled="false">
+
+            <FrameLayout
+                android:id="@+id/Fl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.rey.material.widget.ImageView
+                    android:id="@+id/dishIv"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/gradient">
+
+                </RelativeLayout>
+            </FrameLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/transparent"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/back_w"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title=""
+                app:titleTextColor="@color/colorTextIcon" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorTextIcon"
+        android:fillViewport="true"
+        android:paddingBottom="50dp"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/nameTv"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="left|bottom"
+                android:text="Dish Name"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="12sp"
+                android:autoSizeMaxTextSize="22sp"
+                android:autoSizeStepGranularity="2sp"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimaryMid"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/unitPriceTv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/typeTv"
+                android:layout_width="0dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:gravity="left|center"
+                android:text="Dish Type: "
+                android:textAllCaps="true"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nameTv" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/calorieTv"
+                    android:layout_width="0dp"
+                    android:layout_height="26dp"
+                    android:gravity="left|center"
+                    android:text="calories"
+                    app:layout_constraintTop_toTopOf="@id/typeTv"
+                    app:layout_constraintBottom_toBottomOf="@id/typeTv"
+                    app:layout_constraintRight_toRightOf="@id/unitPriceTv"
+                    android:textAppearance="@style/LightTabTextAppearance"
+                    android:textColor="@color/colorPrimaryText"
+                    android:textSize="13sp" />
+
+            <View
+                android:id="@+id/dividerV"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calorieTv" />
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/desTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxHeight="80dp"
+                android:scrollbars="vertical"
+                android:text="Description: Here is some description"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="@id/dividerV"
+                app:layout_constraintRight_toRightOf="@id/dividerV"
+                app:layout_constraintTop_toBottomOf="@+id/dividerV" />
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/unitPriceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="4"
+                android:gravity="left|center"
+                android:text="Unit Price: S$ 4.50"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/nameTv"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <ImageView
+                android:id="@+id/hi_gif"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toBottomOf="@+id/desTv"
+                android:layout_marginTop="80dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/hi_bear_dribbble" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+            <ImageView
+                android:id="@+id/load_gif"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/load_gif"
+                app:layout_constraintBottom_toTopOf="@id/navBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/priceLL"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:elevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/totalPriceTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/numLbl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="5.5"
+                    android:gravity="center|left"
+                    android:paddingBottom="0dp"
+                    android:text="Num of items: "
+                    android:textSize="16sp" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/minusBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1.5"
+                    app:rd_enable="true"
+                    app:rippleColor="@color/colorAccentHalf"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/minus_icon"
+                    android:tint="@color/colorPrimary" />
+
+                <com.rey.material.widget.TextView
+                    android:id="@+id/numOfItemsTv"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="13dp"
+                    android:layout_weight="1.5"
+                    android:gravity="center_horizontal"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/plusBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1.5"
+                    app:rd_enable="true"
+                    app:rippleColor="@color/colorAccentHalf"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/plus_icon"
+                    android:tint="@color/colorPrimary" />
+            </LinearLayout>
+
+            <com.rey.material.widget.TextView
+                android:id="@+id/totalPriceTv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="left|center"
+                android:text="Total Price : S$ 4.50"
+                android:textAllCaps="true"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/addToCartBtn"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.rey.material.widget.Button
+                android:id="@+id/addToCartBtn"
+                style="@style/LightRaiseColorButtonRippleStyle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="十 Add to Cart"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="60dp"
+                app:rd_enable="true" />
+
+            <com.rey.material.widget.LinearLayout
+                android:id="@+id/navBar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navProfileBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/profile_icon_2" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navCanteenListBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/canteen_icon_2" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navCartBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/cart" />
+
+                <com.rey.material.widget.ImageButton
+                    android:id="@+id/navOrderBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    app:rd_enable="true"
+                    android:layout_weight="3"
+                    android:background="@color/colorTextIcon"
+                    android:src="@drawable/order_icon" />
+            </com.rey.material.widget.LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
